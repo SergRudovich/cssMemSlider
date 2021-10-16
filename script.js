@@ -5,7 +5,7 @@ const imgTxt = document.querySelector('.img__txt');
 const sliders = {
     0: {
         url: "assets/0.jpg",
-        alt: "В принципе, если ничего не покупать, то цены нормальные"
+        alt: "Постоянный недосып уже давно должен был сделать из меня полубога"
     },
     1: {
         url: "assets/1.jpg",
@@ -22,6 +22,9 @@ const sliders = {
 }
 
 let prevComtrol = 0;
+
+imgTxt.innerHTML = sliders[prevComtrol].alt;
+sliderImg.src = sliders[prevComtrol].url;
 
 function handleClickSliderBtn(event) {
     event.currentTarget.querySelector("div").classList.toggle("active__btn");
