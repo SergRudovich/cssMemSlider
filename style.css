@@ -4,5 +4,13 @@
   }
 
   body {
-      background-color: var(--bg-color);
+    background-color: var(--bg-color);
+  }
+  .wrapper {
+    width: 98%;
+    margin-top: 3vh;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #71abff;
+    height: 94vh;
   }
