@@ -12,7 +12,7 @@ body {
 }
 .wrapper {
     flex-direction: column;
-    width: 90%;
+    width: 80%;
     margin-top: 3vh;
     margin-left: auto;
     margin-right: auto;
@@ -21,29 +21,35 @@ body {
 .slider__container {
     width: 100%;
     height: 80%;
-    background-color: #71abff;
     border-radius: 10px;
+    overflow: hidden;
+}
+.slider__img {
+    width: 100%;
+    height: 100%;
 }
 .items__container {
     width: 100%;
     height: 17%;
 }
 .img__alt {
-    height: 2rem;
+    height: 100%;
     margin-top: 10px;
+    padding-right: 50px;
+    max-width: 60%;
 }
-.img__txt {
+.img__txt {   
     color: white;
     font-family: "Roboto", sans-serif;
     font-style: normal;
     font-size: 2rem;
     font-weight: bolder;
 }
-.controls_container {
+.controls__container {
     width: 280px;
     height: 100%;
 }
-.btn_container {
+.btn__container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -57,16 +63,16 @@ body {
     border-radius: 50%;
     background-color: var(--controls-color);
 }
-.active_btn {
+.active__btn {
     background-color: var(--bg-color);
     border: 5px solid var(--controls-color);
     width: 20px;
     height: 20px;
 }
-.btn_container:hover > .control__btn {
+.btn__container:hover > .control__btn {
     background-color: white;
 }
-.btn_container:hover > .active_btn {
+.btn__container:hover > .active__btn {
     border-color: white;
     background-color: var(--bg-color);
 }

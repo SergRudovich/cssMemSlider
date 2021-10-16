@@ -1,31 +1,34 @@
-const sliderBtns = document.querySelectorAll('.btn_container');
+const sliderBtns = document.querySelectorAll('.btn__container');
+const sliderImg = document.querySelector('.slider__img');
+const imgTxt = document.querySelector('.img__txt');
 
 const sliders = {
     0: {
-        url: "1111",
-        alt: ""
+        url: "assets/0.jpg",
+        alt: "В принципе, если ничего не покупать, то цены нормальные"
     },
     1: {
-        url: "2222",
-        alt: ""
+        url: "assets/1.jpg",
+        alt: "Тебе не прийдется закрываться, если ты не будеш открываться"
     },
     2: {
-        url: "3333",
-        alt: ""
+        url: "assets/2.jpeg",
+        alt: "Потому что я выбираю карьеру"
     },
     3: {
-        url: "4444",
-        alt: ""
+        url: "assets/3.jpg",
+        alt: "Сегодня у нас все еще всерьез, детка"
     }
 }
 
 let prevComtrol = 0;
 
 function handleClickSliderBtn(event) {
-    // alert(sliders[event.currentTarget.dataset.number].url);
-    event.currentTarget.querySelector("div").classList.toggle("active_btn");
-    sliderBtns[prevComtrol].querySelector("div").classList.toggle("active_btn");
+    event.currentTarget.querySelector("div").classList.toggle("active__btn");
+    sliderBtns[prevComtrol].querySelector("div").classList.toggle("active__btn");
     prevComtrol = event.currentTarget.dataset.number;
+    imgTxt.innerHTML = sliders[prevComtrol].alt;
+    sliderImg.src = sliders[prevComtrol].url;
 }
 
 sliderBtns.forEach(btn => btn.addEventListener('click', handleClickSliderBtn))
