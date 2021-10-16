@@ -1,2 +1,2 @@
 # cssMemSlider
-rss tasck CSS Mem Slider
+rss task CSS Mem Slider
