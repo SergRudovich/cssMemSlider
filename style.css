@@ -12,7 +12,8 @@ body {
 }
 .wrapper {
     flex-direction: column;
-    width: 70rem;
+    /* width: 70rem; */
+    width: 75%;
     margin-top: 3vh;
     margin-left: auto;
     margin-right: auto;
