@@ -1,6 +1,7 @@
 const sliderBtns = document.querySelectorAll('.btn__container');
 const sliderImg = document.querySelector('.slider__img');
 const imgTxt = document.querySelector('.img__txt');
+const mousePointer = document.querySelector('.mouse__pointer');
 
 const sliders = {
     0: {
@@ -23,23 +24,42 @@ const sliders = {
 
 let prevComtrol = 0;
 let fontSize = imgTxt.style.fontSize;
+let mouseDrag = false;
 
 imgTxt.innerHTML = sliders[prevComtrol].alt;
 sliderImg.src = sliders[prevComtrol].url;
 
 function handleClickSliderBtn(event) {
-    sliderImg.style.opacity = "0";
-    fontSize = imgTxt.style.fontSize
-    imgTxt.style.fontSize = "0";
-    event.currentTarget.querySelector("div").classList.toggle("active__btn");
-    sliderBtns[prevComtrol].querySelector("div").classList.toggle("active__btn");
-    prevComtrol = event.currentTarget.dataset.number;
-    setTimeout(() => {
-        sliderImg.style.opacity = "1";
-        sliderImg.src = sliders[prevComtrol].url;
-        imgTxt.style.fontSize = fontSize;
-        imgTxt.innerHTML = sliders[prevComtrol].alt;
-    }, 400);
+    if (prevComtrol != +event.currentTarget.dataset.number) {
+        sliderImg.style.opacity = "0";
+        fontSize = imgTxt.style.fontSize
+        imgTxt.style.fontSize = "0";
+        event.currentTarget.querySelector("div").classList.toggle("active__btn");
+        sliderBtns[prevComtrol].querySelector("div").classList.toggle("active__btn");
+        prevComtrol = event.currentTarget.dataset.number;
+        setTimeout(() => {
+            sliderImg.style.opacity = "1";
+            sliderImg.src = sliders[prevComtrol].url;
+            imgTxt.style.fontSize = fontSize;
+            imgTxt.innerHTML = sliders[prevComtrol].alt;
+        }, 400);
+    }
 }
 
-sliderBtns.forEach(btn => btn.addEventListener('click', handleClickSliderBtn))
+function pointer(e) {
+    mousePointer.style.top = e.clientY - 15 + "px";
+    mousePointer.style.left = e.clientX - 15 + "px";
+}
+
+sliderBtns.forEach(btn => { btn.addEventListener('click', handleClickSliderBtn); });
+document.addEventListener('mousedown', (e) => {
+    mouseDrag = true;
+    pointer(e);
+});
+document.addEventListener('mousemove', (e) => {
+    if (mouseDrag) pointer(e);
+});
+document.addEventListener('mouseup', () => {
+    mouseDrag = false;
+    mousePointer.style.left = "-2000px"
+});

@@ -12,7 +12,6 @@ body {
 }
 .wrapper {
     flex-direction: column;
-    /* width: 70rem; */
     width: 75%;
     margin-top: 3vh;
     margin-left: auto;
@@ -59,6 +58,7 @@ body {
     width: 60px;
     height: 70px;
     cursor: pointer;
+    z-index: 100;
 }
 .control__btn {
     width: 30px;
@@ -78,6 +78,18 @@ body {
 .btn__container:hover > .active__btn {
     border-color: white;
     background-color: var(--bg-color);
+}
+/* курс мыши тут без абсолютного позиционирования никак */
+.mouse__pointer {
+    position: absolute;
+    top: 0px;
+    left: -2000px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: orange;
+    opacity: 0.5;
+    z-index: 0;
 }
 @media (max-width: 1440px) {
     .wrapper {
