@@ -22,16 +22,24 @@ const sliders = {
 }
 
 let prevComtrol = 0;
+let fontSize = imgTxt.style.fontSize;
 
 imgTxt.innerHTML = sliders[prevComtrol].alt;
 sliderImg.src = sliders[prevComtrol].url;
 
 function handleClickSliderBtn(event) {
+    sliderImg.style.opacity = "0";
+    fontSize = imgTxt.style.fontSize
+    imgTxt.style.fontSize = "0";
     event.currentTarget.querySelector("div").classList.toggle("active__btn");
     sliderBtns[prevComtrol].querySelector("div").classList.toggle("active__btn");
     prevComtrol = event.currentTarget.dataset.number;
-    imgTxt.innerHTML = sliders[prevComtrol].alt;
-    sliderImg.src = sliders[prevComtrol].url;
+    setTimeout(() => {
+        sliderImg.style.opacity = "1";
+        sliderImg.src = sliders[prevComtrol].url;
+        imgTxt.style.fontSize = fontSize;
+        imgTxt.innerHTML = sliders[prevComtrol].alt;
+    }, 400);
 }
 
 sliderBtns.forEach(btn => btn.addEventListener('click', handleClickSliderBtn))
